@@ -58,13 +58,18 @@ class one::prerequisites(
           source => 'http://downloads.opennebula.org/repo/Debian/repo.key',
         } ->
 
+        package { 'required_packages':
+          name => [ 'debian-keyring', debian-archive-keyring' ],
+        } ->
+
         apt::source { 'one-official': # lint:ignore:security_apt_no_key
           location          => "http://downloads.opennebula.org/repo/${apt_location}",
           release           => 'stable',
           repos             => 'opennebula',
-          required_packages => 'debian-keyring debian-archive-keyring',
           pin               => $apt_pin,
-          include_src       => false,
+          include  => {
+            'src' => true,
+          },
         }
       }
     }
