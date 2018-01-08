@@ -58,14 +58,12 @@ class one::prerequisites(
           source => 'http://downloads.opennebula.org/repo/Debian/repo.key',
         } ->
 
-        package { 'required_packages_1':
-          name   => 'debian-keyring',
-          ensure => 'installed',
-        } ->
-
-        package { 'required_packages_2':
-          name   => 'debian-archive-keyring',
-          ensure => 'installed',
+        exec { 'Required packages':
+          command     => '/usr/bin/apt-get -y install debian_keyring debian_archive_keyring',
+          logoutput   => 'on_failure',
+          refreshonly => true,
+          tries       => 3,
+          try_sleep   => 1,
         } ->
 
         apt::source { 'one-official': # lint:ignore:security_apt_no_key
@@ -73,9 +71,6 @@ class one::prerequisites(
           release           => 'stable',
           repos             => 'opennebula',
           pin               => $apt_pin,
-          include  => {
-            'src' => true,
-          },
         }
       }
     }
