@@ -54,7 +54,7 @@ class one::prerequisites(
         }
 
         apt::key { 'one_repo_key':
-          id     => '85E16EBF',
+          id     => '92B77188854CF23E1634DA89592F7F0585E16EBF',
           source => 'http://downloads.opennebula.org/repo/Debian/repo.key',
         } ->
 
