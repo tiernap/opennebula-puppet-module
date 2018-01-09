@@ -233,7 +233,7 @@ class one::params {
         'ruby-polyglot',
       ]
       $oned_onegate_packages = ['opennebula-gate']
-      $libvirtd_srv = 'libvirt-bin'
+      $libvirtd_srv = 'libvirtd'
       $libvirtd_cfg = '/etc/default/libvirt-bin'
       $libvirtd_source = 'puppet:///modules/one/libvirt-bin.debian'
     }
