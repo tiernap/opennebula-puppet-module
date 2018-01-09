@@ -44,7 +44,7 @@ class one::prerequisites(
         case $::operatingsystem {
           'Debian': {
             $apt_location="${one_version_short}/Debian/${::operatingsystemmajrelease}"
-            $apt_pin='-10'
+            $apt_pin='500'
           }
           'Ubuntu': {
             $apt_location="${one_version_short}/Ubuntu/${::operatingsystemmajrelease}"
