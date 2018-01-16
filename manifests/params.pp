@@ -215,7 +215,7 @@ class one::params {
       $rubygems_rpm       = ['rubygem-builder', 'rubygem-sinatra']
     }
     'Debian': {
-      $use_gems        = true
+      $use_gems        = false
       $node_packages   = [
         'opennebula-node',
         'virtinst',
